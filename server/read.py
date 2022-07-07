@@ -13,7 +13,7 @@ pageNum = 1
 for page in pages:
     xpath = '//*[@id="list-image"]/div[' + str(pageNum) + ']'
     image = page.find_element(By.XPATH, xpath).get_attribute('data-url')
-    download_image(image, path, pageNum)
+    download_page_image(image, path, pageNum)
     pageNum += 1
 
 driver.close()

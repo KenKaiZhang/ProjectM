@@ -1,10 +1,14 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+from search import *
 
 app = Flask(__name__)
 
-@app.route("/searchdata")
-def data():
-    return {"data": ["data1", "data2", "data3"]}
+@app.route('/search', methods=['POST'])
+def searchTitle():
+    title = request.json
+    if title:
+        print(title)
+        return jsonify(search(title))
 
 if __name__ == "__main__":
     app.run(debug=True)
