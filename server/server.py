@@ -10,5 +10,10 @@ def searchTitle():
         print(title)
         return jsonify(search(title))
 
+@app.route('/getimage', methods=['POST'])
+def getImage():
+    url = request.json
+    return jsonify(download_image(url))
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -32,13 +32,22 @@ export default function Search() {
       });
   };
 
+  const fetchImage = () => {};
+
   return (
-    <SearchBar
-      platform="ios"
-      placeholder="Enter Manga Title..."
-      onChangeText={updateSearch}
-      onSubmitEditing={enterSearch}
-      value={search}
-    />
+    <React.Fragment>
+      <SearchBar
+        platform="ios"
+        placeholder="Enter Manga Title..."
+        onChangeText={updateSearch}
+        onSubmitEditing={enterSearch}
+        value={search}
+      />
+      <View>
+        {Object.keys(data).map((key, index) => (
+          <Text key={index}>{key}</Text>
+        ))}
+      </View>
+    </React.Fragment>
   );
 }
